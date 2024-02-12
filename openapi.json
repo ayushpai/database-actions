@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  title: AI News API
+  version: 1.0.0
+servers:
+  - url: 'https://3146-2610-148-1f00-4000-6dab-cde2-6cad-71bd.ngrok-free.app'
+paths:
+  /api/news:
+    get:
+      summary: Get the latest AI and Machine Learning news
+      operationId: getNews
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: pageSize
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 20
+        - name: language
+          in: query
+          required: false
+          schema:
+            type: string
+            default: 'en'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  articles:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                        description:
+                          type: string
+                        url:
+                          type: string

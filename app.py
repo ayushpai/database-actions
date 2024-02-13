@@ -20,7 +20,7 @@ async def get_news(request: Request):
     try:
         body = await request.json()
 
-        api_key = "NEWS_API_KEY"
+        api_key = "38fa723a3fb643a89a45cd6220b5a15d"
         if not api_key:
             raise HTTPException(status_code=500, detail="NEWS_API_KEY not found in environment variables")
 
